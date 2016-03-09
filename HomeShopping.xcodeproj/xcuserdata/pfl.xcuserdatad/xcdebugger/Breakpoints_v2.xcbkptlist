@@ -84,22 +84,6 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HomeShopping/Extend/SDK1.6.2/WXHelper/WXApiManager.m"
-            timestampString = "477992884.314062"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "30"
-            endingLineNumber = "30"
-            landmarkName = "-onResp:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "HomeShopping/Extend/SDK1.6.2/WXHelper/WXApiManager.m"
             timestampString = "477993049.622775"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"

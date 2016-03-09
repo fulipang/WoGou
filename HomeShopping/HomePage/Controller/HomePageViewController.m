@@ -39,6 +39,11 @@
 #import "AdvertisementWebViewController.h"
 #import "Hotellikes.h"
 
+#import "UMSocialWechatHandler.h"
+#import "UMSocialQQHandler.h"
+#import "UMSocial.h"
+
+
 /**
  *  自定义分页控制器点击类型
  */
@@ -55,7 +60,7 @@ typedef NS_ENUM(NSInteger, SegTouchType) {
 
 
 
-@interface HomePageViewController ()<UITableViewDataSource,UITableViewDelegate>
+@interface HomePageViewController ()<UITableViewDataSource,UITableViewDelegate,UMSocialUIDelegate>
 {
     /**
      *  segmentControl下面的线
@@ -727,9 +732,25 @@ typedef NS_ENUM(NSInteger, SegTouchType) {
                                           cancelButtonTitle:@"确定"
                                           otherButtonTitles: nil, nil];
     
-    [alert show];
+//    [alert show];
+    
+    [UMSocialSnsService presentSnsIconSheetView:self
+                                         appKey:@"56dfd3b1e0f55a9f6c000d99"
+                                      shareText:@"窝沟-移动创业平台  晒收益，就是豪! 快来看看我赚了多少银子吧!"
+                                     shareImage:[UIImage imageNamed:@"AppIcon"]
+                                shareToSnsNames:@[UMShareToWechatSession,UMShareToWechatTimeline,UMShareToQzone,UMShareToSina,UMShareToQQ,UMShareToTencent,UMShareToSms,UMShareToAlipaySession]
+                                       delegate:self];
+
 
 }
+
+#pragma mark UMSocialUIDelegate 
+
+- (void)didFinishGetUMSocialDataInViewController:(UMSocialResponseEntity *)response {
+    NSLog(@"response:%@", response.data.allValues);
+}
+
+
 
 -(void)rightButtonClicked
 {

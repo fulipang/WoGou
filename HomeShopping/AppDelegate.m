@@ -21,6 +21,11 @@
 #import "AppDelegate.h"
 #import <BaiduMapAPI_Map/BMKMapComponent.h>
 
+#import "UMSocial.h"
+#import "UMSocialWechatHandler.h"
+#import "UMSocialQQHandler.h"
+#import "UMSocialAlipayShareHandler.h"
+#import "UMSocialSinaSSOHandler.h"
 
 @interface AppDelegate ()<BMKGeneralDelegate>
 
@@ -52,6 +57,9 @@ void SNImageCacheConfig(void)
     
     [self setupTabbarController];
     
+    [self registerUM];
+    
+    
     // 设置图片缓存大小
     SNImageCacheConfig();
     
@@ -69,6 +77,33 @@ void SNImageCacheConfig(void)
     [self.window makeKeyAndVisible];
     
     return YES;
+}
+
+#pragma mark UMeng分享
+
+- (void)registerUM {
+    [UMSocialData setAppKey:@"56dfd3b1e0f55a9f6c000d99"];
+    
+    [UMSocialData openLog:YES];
+    
+    
+    NSString *urlString = @"http://www.baidu.com";
+    
+    [UMSocialWechatHandler setWXAppId:@"wx0761b5dd04114882" appSecret:@"3a3beed2dfee04ab6a140cab66ce006d" url: urlString];
+    
+    // demo的数据
+    [UMSocialQQHandler setQQWithAppId:@"1104231525" appKey:@"dX6nQwFwj93nC0t9" url: urlString];
+    
+    [UMSocialAlipayShareHandler setAlipayShareAppId:@"2016011101083286"];
+    
+    
+    // demo的数据
+    [UMSocialSinaSSOHandler openNewSinaSSOWithAppKey:@"3921700954"
+                                              secret:@"04b48b094faeb16683c32669824ebdad"
+                                         RedirectURL:@"http://sns.whalecloud.com/sina2/callback"];
+
+    
+    [UMSocialConfig hiddenNotInstallPlatforms:@[UMShareToQQ,UMShareToWechatTimeline,UMShareToWechatSession,UMShareToQzone]];
 }
 
 - (void)setupTabbarController {
