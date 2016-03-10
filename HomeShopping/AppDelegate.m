@@ -84,8 +84,9 @@ void SNImageCacheConfig(void)
 - (void)registerUM {
     [UMSocialData setAppKey:@"56dfd3b1e0f55a9f6c000d99"];
     
+#if DEBUG
     [UMSocialData openLog:YES];
-    
+#endif
     
     NSString *urlString = @"http://www.baidu.com";
     
