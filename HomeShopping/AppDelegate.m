@@ -110,7 +110,7 @@ void SNImageCacheConfig(void)
 - (void)setupTabbarController {
     
     HomePageViewController *homePage = [[HomePageViewController alloc] initWithNibName:nil bundle:nil];
-    HotelSuppliesViewController *hotelSupply = [[HotelSuppliesViewController alloc] initWithNibName:nil bundle:nil];
+//    HotelSuppliesViewController *hotelSupply = [[HotelSuppliesViewController alloc] initWithNibName:nil bundle:nil];
     RoomReservatioinViewController *roomReservation = [[RoomReservatioinViewController alloc] initWithNibName:nil bundle:nil];
     SpecialOffersViewController *specailOffers = [[SpecialOffersViewController alloc] initWithNibName:nil bundle:nil];
     
@@ -121,9 +121,9 @@ void SNImageCacheConfig(void)
                                                         image:[[UIImage imageNamed:@"TabBar_Home"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]
                                                 selectedImage:[[UIImage imageNamed:@"TabBar_Home_selected"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
     
-    hotelSupply.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"酒店用品"
-                                                           image:[[UIImage imageNamed:@"TabBar_HotelThing"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]
-                                                   selectedImage:[[UIImage imageNamed:@"TabBar_HotelThing_selected"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+//    hotelSupply.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"酒店用品"
+//                                                           image:[[UIImage imageNamed:@"TabBar_HotelThing"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]
+//                                                   selectedImage:[[UIImage imageNamed:@"TabBar_HotelThing_selected"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
     
     roomReservation.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"订房"
                                                                image:[[UIImage imageNamed:@"TabBar_Subscribes"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]
@@ -135,14 +135,14 @@ void SNImageCacheConfig(void)
     mineViewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"我的" image:[[UIImage imageNamed:@"TabBar_Mine"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]
                                                           selectedImage:[[UIImage imageNamed:@"TabBar_Mine_selected"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
     UINavigationController *homeNavigationController = [[UINavigationController alloc] initWithRootViewController:homePage];
-    UINavigationController *hotelSupplyNavigationController = [[UINavigationController alloc] initWithRootViewController:hotelSupply];
+//    UINavigationController *hotelSupplyNavigationController = [[UINavigationController alloc] initWithRootViewController:hotelSupply];
     UINavigationController *roomReservationNavigationController = [[UINavigationController alloc] initWithRootViewController:roomReservation];
     UINavigationController *specailOffersNavigationController = [[UINavigationController alloc] initWithRootViewController:specailOffers];
     
     UINavigationController *mineNav = [[UINavigationController alloc] initWithRootViewController:mineViewController];
     
     UITabBarController *tabBarController = [[UITabBarController alloc] initWithNibName:nil bundle:nil];
-    tabBarController.viewControllers = @[homeNavigationController, hotelSupplyNavigationController, roomReservationNavigationController,specailOffersNavigationController,mineNav];
+    tabBarController.viewControllers = @[homeNavigationController, roomReservationNavigationController,specailOffersNavigationController,mineNav];
     
     
     [self.window.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
