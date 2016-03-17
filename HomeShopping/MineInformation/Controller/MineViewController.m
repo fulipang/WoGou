@@ -65,7 +65,7 @@
 
 -(void)initTitles
 {
-    _titles = [NSArray arrayWithObjects:@"我的商品订单",@"我的订房订单",@"我的评价",@"我的狗币",@"修改密码",@"收货地址管理",@"设置", nil];
+    _titles = [NSArray arrayWithObjects:/*@"我的商品订单",*/@"我的订房订单",@"我的评价",@"我的狗币",@"修改密码",@"收货地址管理",@"设置", nil];
 }
 
 #pragma mark - 自定义视图
@@ -543,7 +543,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return (section == 0)?1:([[AppInformationSingleton shareAppInfomationSingleton] getLoginCode])?8:7;
+    return (section == 0)?1:([[AppInformationSingleton shareAppInfomationSingleton] getLoginCode])?_titles.count:_titles.count-1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

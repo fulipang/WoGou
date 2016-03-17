@@ -156,7 +156,7 @@
      */
     //    _searchBar.tintColor = UIColorFromRGB(BLACKFONTCOLOR);
     _searchBar.delegate = self;
-    _searchBar.placeholder = @"搜索酒店用品/酒店";
+    _searchBar.placeholder = @"搜索酒店";
     [_searchBar setBackgroundImage:[UIImage imageNamed:@"NavBar_search"]];
     _searchBar.layer.cornerRadius = 3;
     _searchBar.clipsToBounds = YES;

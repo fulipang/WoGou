@@ -54,7 +54,7 @@
 
 - (void)initDataSource
 {
-    _productType = kProductTypeEntity;
+    _productType = kProductTypeVirtual;
 
     _dataSource = [NSMutableArray array];
 }
@@ -67,8 +67,8 @@
     
     [self setNavigationBarLeftButtonImage:@"NavBar_Back"];
     
-    [self setUpSegmentView];
-    
+//    [self setUpSegmentView];
+    [self setNavigationBarTitle:@"我的收藏"];
     [self loadMainTableView];
 }
 

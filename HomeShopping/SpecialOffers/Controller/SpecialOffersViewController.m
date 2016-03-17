@@ -44,6 +44,7 @@
     
     //顶部广告滚动视图
     ImageScrollView * _scrollHeaderView;
+    UIButton *_searchButton;
 }
 
 #pragma mark - 生命周期
@@ -61,10 +62,10 @@
     
     [self resetParameters];
     
-    _currentProductType = kProductTypeEntity;
+    _currentProductType = kProductTypeVirtual;
     
     [self getProductListData];
-    
+    [self getHotelData];
     [self loadCostomViw];
     
 }
@@ -143,6 +144,10 @@
  */
 - (void)setUpTitleSegmentView
 {
+    
+    [self.customNavigationBar addSubview:[self searchButton]];
+    return;
+    
     UIView * titleBaseView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, GET_SCAlE_LENGTH(202),30)];
     [self.customNavigationBar addSubview:titleBaseView];
     [titleBaseView makeConstraints:^(MASConstraintMaker *make) {
@@ -188,6 +193,44 @@
     rightButton.tag = 152;
     [rightButton addTarget:self action:@selector(titleSegmentClicked:) forControlEvents:UIControlEventTouchUpInside];
 }
+
+
+-(UIButton *)searchButton
+{
+    if (_searchButton == nil) {
+        
+        /**
+         *  初始化
+         */
+        _searchButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [self.customNavigationBar addSubview:_searchButton];
+        
+        /**
+         *  位置
+         */
+        [_searchButton makeConstraints:^(MASConstraintMaker *make) {
+            make.centerX.mas_equalTo(self.customNavigationBar.mas_centerX);
+            make.bottom.mas_equalTo(self.customNavigationBar.mas_bottom).with.offset(-5);
+            make.size.mas_equalTo(CGSizeMake(220, 31));
+        }];
+        
+        /**
+         *  参数配置
+         */
+        [_searchButton setTitle:@"搜索酒店" forState:UIControlStateNormal];
+        [_searchButton setTitle:@"搜索酒店" forState:UIControlStateHighlighted];
+        [_searchButton setTitleColor:UIColorFromRGB(GRAYFONTCOLOR) forState:UIControlStateNormal];
+        [_searchButton setTitleColor:UIColorFromRGB(GRAYFONTCOLOR) forState:UIControlStateHighlighted];
+        [_searchButton setBackgroundImage:[UIImage imageNamed:@"NavBar_search"] forState:UIControlStateNormal];
+        [_searchButton setBackgroundImage:[UIImage imageNamed:@"NavBar_search"] forState:UIControlStateHighlighted]
+        ;
+        _searchButton.titleLabel.font = [UIFont systemFontOfSize:NORMALFONTSIZE];
+        [_searchButton addTarget:self action:@selector(leftButtonClicked) forControlEvents:UIControlEventTouchUpInside];
+    }
+    
+    return _searchButton;
+}
+
 
 #pragma mark - UITableviewDelegate
 
@@ -533,13 +576,13 @@
         _totalPage = [parser.productListModel.totalpage integerValue];
         
         for (HSProduct * product in parser.productListModel.product) {
-            [_dataSource addObject:product];
+//            [_dataSource addObject:product];
         }
         
         _adsList = [NSMutableArray arrayWithArray:parser.productListModel.topadvs];
         [_scrollHeaderView setImageArray:_adsList];
         
-        [self.mainTableView reloadData];
+//        [self.mainTableView reloadData];
         [self endRefreshing];
         
     } FailureBlock:^(NSString *error) {

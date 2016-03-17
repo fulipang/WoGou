@@ -157,8 +157,8 @@ NSInteger _tag = 0;
     [searchButton setBackgroundImage:[UIImage imageNamed:@"NavBar_search"] forState:UIControlStateHighlighted];
     [searchButton addTarget:self action:@selector(searchButtonClicked) forControlEvents:UIControlEventTouchUpInside];
     
-    [searchButton setTitle:@"搜索酒店用品/酒店" forState:UIControlStateNormal];
-    [searchButton setTitle:@"搜索酒店用品/酒店" forState:UIControlStateHighlighted];
+    [searchButton setTitle:@"搜索酒店" forState:UIControlStateNormal];
+    [searchButton setTitle:@"搜索酒店" forState:UIControlStateHighlighted];
     
     searchButton.titleLabel.font = [UIFont systemFontOfSize:NORMALFONTSIZE];
     [searchButton setTitleColor:UIColorFromRGB(GRAYFONTCOLOR) forState:UIControlStateNormal];

@@ -116,7 +116,7 @@ typedef NS_ENUM(NSInteger, SegTouchType) {
     _categorys            = [NSMutableArray array];
     _possibleLikeProducts = [NSMutableArray array];
     _possibleLikeRooms    = [NSMutableArray array];
-    _currentProductType   = kProductTypeEntity;
+    _currentProductType   = kProductTypeVirtual;
     
     self.automaticallyAdjustsScrollViewInsets = NO;     //处理scrollview问题
     
@@ -208,8 +208,8 @@ typedef NS_ENUM(NSInteger, SegTouchType) {
         /**
          *  参数配置
          */
-        [_searchButton setTitle:@"搜索酒店用品/酒店" forState:UIControlStateNormal];
-        [_searchButton setTitle:@"搜索酒店用品/酒店" forState:UIControlStateHighlighted];
+        [_searchButton setTitle:@"搜索酒店" forState:UIControlStateNormal];
+        [_searchButton setTitle:@"搜索酒店" forState:UIControlStateHighlighted];
         [_searchButton setTitleColor:UIColorFromRGB(GRAYFONTCOLOR) forState:UIControlStateNormal];
         [_searchButton setTitleColor:UIColorFromRGB(GRAYFONTCOLOR) forState:UIControlStateHighlighted];
         [_searchButton setBackgroundImage:[UIImage imageNamed:@"NavBar_search"] forState:UIControlStateNormal];
@@ -269,7 +269,7 @@ typedef NS_ENUM(NSInteger, SegTouchType) {
          *  背景view
          */
         if (_PossibleLikeBaseView == nil) {
-            _PossibleLikeBaseView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 55)];
+            _PossibleLikeBaseView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 30)];
             _PossibleLikeBaseView.backgroundColor = [UIColor whiteColor];
             //            _PossibleLikeBaseView.userInteractionEnabled = YES;
             
@@ -280,7 +280,7 @@ typedef NS_ENUM(NSInteger, SegTouchType) {
             [_PossibleLikeBaseView addSubview:descriptionView];
             [descriptionView makeConstraints:^(MASConstraintMaker *make) {
                 make.left.and.top.mas_equalTo(_PossibleLikeBaseView);
-                make.size.mas_equalTo(CGSizeMake(SCREEN_WIDTH/3.0, _PossibleLikeBaseView.frame.size.height/2.0));
+                make.size.mas_equalTo(CGSizeMake(SCREEN_WIDTH/3.0, _PossibleLikeBaseView.frame.size.height));
             }];
             descriptionView.backgroundColor = [UIColor clearColor];
             
@@ -311,21 +311,21 @@ typedef NS_ENUM(NSInteger, SegTouchType) {
          *  自定义分页控制器
          */
         
-        if (_segment == nil) {
-            _segment = [[SegmentTapView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 55/2.0) withDataArray:[NSArray arrayWithObjects:@"酒店用品",@"酒店", nil] withFont:NORMALFONTSIZE];
-            [_PossibleLikeBaseView addSubview:_segment];
-            [_segment makeConstraints:^(MASConstraintMaker *make) {
-                make.left.and.bottom.mas_equalTo(_PossibleLikeBaseView);
-                make.size.mas_equalTo(CGSizeMake(SCREEN_WIDTH, 55/2.0));
-            }];
-            [_segment setTextColor:UIColorFromRGB(BLACKFONTCOLOR) SelectedColor:UIColorFromRGB(LIGHTBLUECOLOR) NoticeViewColor:UIColorFromRGB(LIGHTBLUECOLOR)];
-            [_segment callBackWithBlock:^(NSInteger index) {
-                _currentProductType = index + 1;
-                NSLog(@"_currenttype = %ld",_currentProductType);
-                [self.mainTableView reloadData];
-                
-            }];
-        }
+//        if (_segment == nil) {
+//            _segment = [[SegmentTapView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 55/2.0) withDataArray:[NSArray arrayWithObjects:@"酒店", nil] withFont:NORMALFONTSIZE];
+//            [_PossibleLikeBaseView addSubview:_segment];
+//            [_segment makeConstraints:^(MASConstraintMaker *make) {
+//                make.left.and.bottom.mas_equalTo(_PossibleLikeBaseView);
+//                make.size.mas_equalTo(CGSizeMake(SCREEN_WIDTH, 55/2.0));
+//            }];
+//            [_segment setTextColor:UIColorFromRGB(BLACKFONTCOLOR) SelectedColor:UIColorFromRGB(LIGHTBLUECOLOR) NoticeViewColor:UIColorFromRGB(LIGHTBLUECOLOR)];
+//            [_segment callBackWithBlock:^(NSInteger index) {
+//                _currentProductType = index + 1;
+//                NSLog(@"_currenttype = %ld",_currentProductType);
+//                [self.mainTableView reloadData];
+//                
+//            }];
+//        }
         
         //        [self showSegmentViewWithSuperView:_PossibleLikeBaseView];
         
@@ -349,7 +349,7 @@ typedef NS_ENUM(NSInteger, SegTouchType) {
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
     if (section == 1) {
-        return 55;
+        return 30;
     }else{
         return 0.1;
     }

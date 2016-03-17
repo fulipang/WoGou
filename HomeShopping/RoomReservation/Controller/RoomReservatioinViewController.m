@@ -272,8 +272,8 @@
     }];
     
     //参数配置
-    [searchButton setTitle:@"搜索酒店用品/酒店" forState:UIControlStateNormal];
-    [searchButton setTitle:@"搜索酒店用品/酒店" forState:UIControlStateHighlighted];
+    [searchButton setTitle:@"搜索酒店" forState:UIControlStateNormal];
+    [searchButton setTitle:@"搜索酒店" forState:UIControlStateHighlighted];
     [searchButton setTitleColor:UIColorFromRGB(GRAYFONTCOLOR) forState:UIControlStateNormal];
     [searchButton setTitleColor:UIColorFromRGB(GRAYFONTCOLOR) forState:UIControlStateHighlighted];
     [searchButton setBackgroundImage:[UIImage imageNamed:@"NavBar_search"] forState:UIControlStateNormal];

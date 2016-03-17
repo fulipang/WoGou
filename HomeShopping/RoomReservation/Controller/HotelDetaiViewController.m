@@ -224,8 +224,8 @@
         /**
          *  参数配置
          */
-        [_searchButton setTitle:@"搜索酒店用品/酒店" forState:UIControlStateNormal];
-        [_searchButton setTitle:@"搜索酒店用品/酒店" forState:UIControlStateHighlighted];
+        [_searchButton setTitle:@"搜索酒店" forState:UIControlStateNormal];
+        [_searchButton setTitle:@"搜索酒店" forState:UIControlStateHighlighted];
         [_searchButton setTitleColor:UIColorFromRGB(GRAYFONTCOLOR) forState:UIControlStateNormal];
         [_searchButton setTitleColor:UIColorFromRGB(GRAYFONTCOLOR) forState:UIControlStateHighlighted];
         [_searchButton setBackgroundImage:[UIImage imageNamed:@"NavBar_search"] forState:UIControlStateNormal];

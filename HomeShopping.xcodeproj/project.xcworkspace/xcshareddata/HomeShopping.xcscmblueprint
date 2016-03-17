@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "9F25D12C3DE10F53733B54F6E1189175B73BF31E",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "9F25D12C3DE10F53733B54F6E1189175B73BF31E" : 0,
+    "E9D83B2FCC4036AC11673406F0D9838B90FA7398" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "66551537-53F9-4992-8687-4262B1EE855F",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "9F25D12C3DE10F53733B54F6E1189175B73BF31E" : "WoGou\/",
+    "E9D83B2FCC4036AC11673406F0D9838B90FA7398" : ""
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "HomeShopping",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "HomeShopping.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/fulipang\/WoGou.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "9F25D12C3DE10F53733B54F6E1189175B73BF31E"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:SouthSonw\/SouMiPay.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "E9D83B2FCC4036AC11673406F0D9838B90FA7398"
+    }
+  ]
+}

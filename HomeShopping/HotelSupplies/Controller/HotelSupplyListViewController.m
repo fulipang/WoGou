@@ -251,8 +251,8 @@
         make.bottom.mas_equalTo(self.customNavigationBar.mas_bottom).with.offset(-5);
         make.size.mas_equalTo(CGSizeMake(GET_SCAlE_LENGTH(220), 31));
     }];
-    [searchBtn setTitle:@"搜索酒店用品/酒店" forState:UIControlStateNormal];
-    [searchBtn setTitle:@"搜索酒店用品/酒店" forState:UIControlStateHighlighted];
+    [searchBtn setTitle:@"搜索酒店" forState:UIControlStateNormal];
+    [searchBtn setTitle:@"搜索酒店" forState:UIControlStateHighlighted];
     [searchBtn setTitleColor:UIColorFromRGB(GRAYFONTCOLOR) forState:UIControlStateNormal];
     [searchBtn setTitleColor:UIColorFromRGB(GRAYFONTCOLOR) forState:UIControlStateHighlighted];
     [searchBtn setBackgroundImage:[UIImage imageNamed:@"NavBar_search"] forState:UIControlStateNormal];
