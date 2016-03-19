@@ -395,7 +395,7 @@ typedef NS_ENUM(NSInteger, SegTouchType) {
         if (indexPath.row == 0) {
             return 200;
         }else{
-            return GET_SCAlE_HEIGHT(170);
+            return GET_SCAlE_HEIGHT(170/2);
         }
     }else{
         return (_currentProductType == kProductTypeEntity)?GET_SCAlE_HEIGHT(115):GET_SCAlE_HEIGHT(135);
@@ -442,7 +442,7 @@ typedef NS_ENUM(NSInteger, SegTouchType) {
             SCHomeShowCell * cell = [tableView dequeueReusableCellWithIdentifier:@"SCHomeShowCell"];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             if (_categorys.count > 0) {
-                [cell setCellWithData:_categorys];
+                [cell setCellWithData:_starlevels];
             }
             
             /**
@@ -456,19 +456,19 @@ typedef NS_ENUM(NSInteger, SegTouchType) {
                 
 //                NSLog(@"tag = %ld",clickType);
                 
-                HPCategorysModel * category   = _categorys[clickType];
+//                HPCategorysModel * category   = _categorys[clickType];
                 self.hidesBottomBarWhenPushed = YES;
                 
-                if (clickType > 3) {
-                    
-                    NSString * star = _starlevels[clickType - 4][@"title"];
+//                if (clickType > 3) {
+                
+                    NSString * star = _starlevels[clickType][@"title"];
                     
                     HotelSupplyListViewController * VC = [[HotelSupplyListViewController alloc] initWithStarLevels:star];
                     [self.navigationController pushViewController:VC animated:YES];
-                }else{
-                    HotelSupplyListViewController * VC = [[HotelSupplyListViewController alloc] initWithCategoryModel:category];
-                    [self.navigationController pushViewController:VC animated:YES];
-                }
+//                }else{
+//                    HotelSupplyListViewController * VC = [[HotelSupplyListViewController alloc] initWithCategoryModel:category];
+//                    [self.navigationController pushViewController:VC animated:YES];
+//                }
                 self.hidesBottomBarWhenPushed = NO;
             }];
             
@@ -498,13 +498,8 @@ typedef NS_ENUM(NSInteger, SegTouchType) {
                     [cell cellForHoelSuppListVC:YES];
                     [cell showDetail:NO];
                     [cell cellForRowWithModel:(HSProduct *)likes];
-
-//                    NSString * distance = [self LantitudeLongitudeDist:_coordinate.longitude other_Lat:_coordinate.latitude self_Lon:[likes.coordinatey doubleValue] self_Lat:[likes.coordinatex doubleValue]];
-//                    cell.customDistanceLabel.text = [NSString stringWithFormat:@"距离：%.2fkm",[distance doubleValue]/1000];
                     
                     NSString * distance = [self LantitudeLongitudeDist:[likes.coordinatex doubleValue] other_Lat:[likes.coordinatey doubleValue] self_Lon:_coordinate.longitude self_Lat:_coordinate.latitude];
-                    
-//                    double distances = [self distanceBetweenOrderBy:likes.coordinatey.doubleValue :_coordinate.latitude :likes.coordinatex.doubleValue :_coordinate.longitude];
                     
                     cell.customDistanceLabel.text = [NSString stringWithFormat:@"距离：%.2fkm",distance.doubleValue/1000];// 系统方法:89.16,89.24,70.42 民间方法: 89.38,89.45,70.57
                 }
@@ -557,72 +552,7 @@ typedef NS_ENUM(NSInteger, SegTouchType) {
 {
     
     if ([scrollView isEqual:self.mainTableView]) {
-        //
-        //        CGFloat y = scrollView.contentOffset.y;
-        //
-        //
-        //
-        //
-        //
-        //        if (y == 136)
-        //
-        //            switch (direction) {
-        //                case kScrollToTop: {
-        //                    [UIView animateWithDuration:0 animations:^{
-        //                        [self.mainTableView updateConstraints:^(MASConstraintMaker *make) {
-        //                            make.top.mas_equalTo(self.view.mas_top).with.offset(0);
-        //                        }];
-        //                    } completion:^(BOOL finished) {
-        //
-        //                    }];
-        //                    break;
-        //                }
-        //
-        //                case kScrollToBottom: {
-        //                    [UIView animateWithDuration:0 animations:^{
-        //                        [self.mainTableView updateConstraints:^(MASConstraintMaker *make) {
-        //                            make.top.mas_equalTo(self.view.mas_top).with.offset(64);
-        //                        }];
-        //                    } completion:^(BOOL finished) {
-        //
-        //                    }];
-        //                    break;
-        //                }
-        //
-        //                default: {
-        //                    break;
-        //                }
-        //            }
-        //        }
-        
-        //        if (y <= 136) {
-        //
-        //            self.navBackGroundView.alpha = y/136;
-        //
-        //            [UIView animateWithDuration:3 animations:^{
-        //                [self.mainTableView updateConstraints:^(MASConstraintMaker *make) {
-        //                    make.top.mas_equalTo(self.view.mas_top).with.offset(0);
-        //                }];
-        //            } completion:^(BOOL finished) {
-        ////                if (y == 136) {
-        ////                    <#statements#>
-        ////                }
-        ////                [self.mainTableView setContentOffset:CGPointMake(0, <#CGFloat y#>) animated:<#(BOOL)#>setContentof]
-        //            }];
-        //
-        //        }
-        //        if (y >= 136) {
-        //
-        //            [UIView animateWithDuration:0 animations:^{
-        //                [self.mainTableView updateConstraints:^(MASConstraintMaker *make) {
-        //                    make.top.mas_equalTo(self.view.mas_top).with.offset(64);
-        //                }];
-        //            } completion:^(BOOL finished) {
-        //                if (y == 136) {
-        //                    self.mainTableView.contentOffset = CGPointMake(0, 0);
-        //                }
-        //            }];
-        //        }
+
     }
 }
 
@@ -633,38 +563,7 @@ typedef NS_ENUM(NSInteger, SegTouchType) {
 
 -(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
 {
-    //    CGFloat offSet_y = scrollView.contentOffset.y;
-    //    ScrollDirection direction = (_lastScrollOffSet_y > offSet_y) ? kScrollToTop : kScrollToBottom;
-    
-    //
-    //    switch (direction) {
-    //        case kScrollToTop:
-    //        {
-    //            if (offSet_y < 200) {
-    //
-    //                [self.mainTableView updateConstraints:^(MASConstraintMaker *make) {
-    //                    make.top.mas_equalTo(self.view.mas_top).with.offset(0);
-    //                }];
-    //            }
-    //            break;
-    //        }
-    //
-    //        case kScrollToBottom:
-    //        {
-    //            if (offSet_y > 64) {
-    //
-    //                [self.mainTableView updateConstraints:^(MASConstraintMaker *make) {
-    //                    make.top.mas_equalTo(self.view.mas_top).with.offset(64);
-    //                }];
-    //            }
-    //            break;
-    //        }
-    //
-    //        default:
-    //            break;
-    //
-    //    }
-}
+  }
 
 #pragma mark - 事件处理
 
@@ -767,7 +666,7 @@ typedef NS_ENUM(NSInteger, SegTouchType) {
         
     }else{
         self.hidesBottomBarWhenPushed = YES;
-        ShoppingCartViewController * VC = [[ShoppingCartViewController alloc] initWithProductType:_currentProductType];
+        ShoppingCartViewController * VC = [[ShoppingCartViewController alloc] initWithProductType:kProductTypeVirtual];
         [self.navigationController pushViewController:VC animated:YES];
         self.hidesBottomBarWhenPushed = NO;
     }

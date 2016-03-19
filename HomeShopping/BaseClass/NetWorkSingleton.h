@@ -124,6 +124,15 @@ extern NSString *const zhifubaoKEY;
  */
 - (void)feedBackWithTitle:(NSString *)title Content:(NSString *)content userContactType:(UserContactMethodType)contactType ContactDetail:(NSString *)contactMethodDetail SuccessBlock:(SuccessBlock)successBlock FailureBlock:(FailureBlock)failureBlock;
 
+/**
+ *  获取广告公共方法
+ *
+ *  @param type         广告位置枚举类型
+ *  @param successBlock 成功回调方法
+ *  @param failureBlock 失败回调方法
+ */
+- (void)getAdviceWithType:(AdvicePositionType)type SuccessBlock:(SuccessBlock)successBlock FailureBlock:(FailureBlock)failureBlock;
+
 /**微信预支付接口*/
 - (void)postWithHeadParameter:(NSDictionary *)headDic bodyParameter:(NSDictionary *)bodyDic productsParameter:(NSDictionary *)productsDic SuccessBlock:(SuccessBlock)successBlock FailureBlock:(FailureBlock)failureBlock;
 

@@ -65,7 +65,7 @@
 
 -(void)initTitles
 {
-    _titles = [NSArray arrayWithObjects:/*@"我的商品订单",*/@"我的订房订单",@"我的评价",@"我的狗币",@"修改密码",@"收货地址管理",@"设置", nil];
+    _titles = [NSArray arrayWithObjects:@"我的商品订单",@"我的订房订单",@"我的评价",@"我的狗币",@"修改密码",@"收货地址管理",@"设置", nil];
 }
 
 #pragma mark - 自定义视图
@@ -292,7 +292,7 @@
         
     }
     return infoView;
-
+    
 }
 
 - (UIView *)createItemViewWithImageName:(NSString *)imageName Title:(NSString *)title
@@ -332,39 +332,41 @@
     
     if (indexPath.row != 7) {
         
-        //底部线
-        UILabel * line = [UILabel new];
-        [normalView addSubview:line];
-        [line makeConstraints:^(MASConstraintMaker *make) {
-            make.bottom.mas_equalTo(normalView.mas_bottom);
-            make.right.mas_equalTo(normalView.mas_right);
-            make.size.mas_equalTo(CGSizeMake(SCREEN_WIDTH - GET_SCAlE_LENGTH(15), 1));
-        }];
-        line.backgroundColor = UIColorFromRGB(GRAYBGCOLOR);
-        
-        //标题
-        UILabel * titleLabel = [UILabel new];
-        [normalView addSubview:titleLabel];
-        [titleLabel makeConstraints:^(MASConstraintMaker *make) {
-            make.centerY.mas_equalTo(normalView.centerY);
-            make.left.mas_equalTo(normalView.mas_left).with.offset(GET_SCAlE_LENGTH(25));
-        }];
-        
-        
-        
-        titleLabel.text = _titles[indexPath.row];
-        titleLabel.textColor = UIColorFromRGB(BLACKFONTCOLOR);
-        titleLabel.font = [UIFont systemFontOfSize:NORMAL_FONTSIZE];
-        
-        //图标
-        UIImageView * symbol = [UIImageView new];
-        symbol.image = [UIImage imageNamed:@"arrow_right"];
-        [normalView addSubview:symbol];
-        [symbol makeConstraints:^(MASConstraintMaker *make) {
-            make.centerY.mas_equalTo(normalView.centerY);
-            make.right.mas_equalTo(normalView.mas_right).with.offset(GET_SCAlE_LENGTH(-15));
-            make.size.mas_equalTo(CGSizeMake(symbol.image.size.width, symbol.image.size.height));
-        }];
+        if (indexPath.row != 0 && indexPath.row != 5) {
+            //底部线
+            UILabel * line = [UILabel new];
+            [normalView addSubview:line];
+            [line makeConstraints:^(MASConstraintMaker *make) {
+                make.bottom.mas_equalTo(normalView.mas_bottom);
+                make.right.mas_equalTo(normalView.mas_right);
+                make.size.mas_equalTo(CGSizeMake(SCREEN_WIDTH - GET_SCAlE_LENGTH(15), 1));
+            }];
+            line.backgroundColor = UIColorFromRGB(GRAYBGCOLOR);
+            
+            //标题
+            UILabel * titleLabel = [UILabel new];
+            [normalView addSubview:titleLabel];
+            [titleLabel makeConstraints:^(MASConstraintMaker *make) {
+                make.centerY.mas_equalTo(normalView.centerY);
+                make.left.mas_equalTo(normalView.mas_left).with.offset(GET_SCAlE_LENGTH(25));
+            }];
+            
+            
+            
+            titleLabel.text = _titles[indexPath.row];
+            titleLabel.textColor = UIColorFromRGB(BLACKFONTCOLOR);
+            titleLabel.font = [UIFont systemFontOfSize:NORMAL_FONTSIZE];
+            
+            //图标
+            UIImageView * symbol = [UIImageView new];
+            symbol.image = [UIImage imageNamed:@"arrow_right"];
+            [normalView addSubview:symbol];
+            [symbol makeConstraints:^(MASConstraintMaker *make) {
+                make.centerY.mas_equalTo(normalView.centerY);
+                make.right.mas_equalTo(normalView.mas_right).with.offset(GET_SCAlE_LENGTH(-15));
+                make.size.mas_equalTo(CGSizeMake(symbol.image.size.width, symbol.image.size.height));
+            }];
+        }
     }
     
     else
@@ -466,7 +468,7 @@
 
 - (void)loginButtonClicked
 {
-
+    
     LoginViewController * VC = [[LoginViewController alloc] init];
     UINavigationController * nav = [[UINavigationController alloc] initWithRootViewController:VC];
     [self presentViewController:nav animated:YES completion:^{
@@ -543,7 +545,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return (section == 0)?1:([[AppInformationSingleton shareAppInfomationSingleton] getLoginCode])?_titles.count:_titles.count-1;
+    return (section == 0)?1:([[AppInformationSingleton shareAppInfomationSingleton] getLoginCode])?8:7;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -565,7 +567,17 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return (indexPath.row == 0 && indexPath.section == 0)?GET_SCAlE_HEIGHT(INFO_CELL_HEIGHT):GET_SCAlE_HEIGHT(NORMAL_CELL_HEIGHT);
+//    return (indexPath.row == 0 && indexPath.section == 0)?GET_SCAlE_HEIGHT(INFO_CELL_HEIGHT):GET_SCAlE_HEIGHT(NORMAL_CELL_HEIGHT);
+    
+    if (indexPath.row == 0 && indexPath.section == 0) {
+        return GET_SCAlE_HEIGHT(INFO_CELL_HEIGHT);
+    }
+    else if (indexPath.row == 0 || indexPath.row == 5){
+        return 0.1;
+    }
+    else{
+        return GET_SCAlE_HEIGHT(NORMAL_CELL_HEIGHT);
+    }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

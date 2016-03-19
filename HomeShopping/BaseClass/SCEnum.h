@@ -200,4 +200,26 @@ typedef NS_ENUM(NSInteger, OrderStatusType) {
     kOrderStatusAlreadyPayed,
 };
 
+/**
+ *  广告位置枚举
+ */
+typedef NS_ENUM(NSInteger, AdvicePositionType) {
+    /**
+     *  首页广告
+     */
+    kAdvicePositionHomePage = 0,
+    /**
+     *  酒店用品广告
+     */
+    kAdvicePositionHotelSupplies,
+    /**
+     *  酒店房间广告
+     */
+    kAdvicePositionRoomReserVation,
+    /**
+     *  特惠广告
+     */
+    kAdvicePositionSpecialOffers,
+};
+
 #endif /* SCEnum_h */

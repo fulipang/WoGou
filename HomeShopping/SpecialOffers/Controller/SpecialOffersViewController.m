@@ -64,7 +64,8 @@
     
     _currentProductType = kProductTypeVirtual;
     
-    [self getProductListData];
+//    [self getProductListData];
+    [self getAdviceList];
     [self getHotelData];
     [self loadCostomViw];
     
@@ -547,6 +548,20 @@
     }];
 }
 
+- (void)getAdviceList
+{
+    [[NetWorkSingleton sharedManager] getAdviceWithType:kAdvicePositionSpecialOffers SuccessBlock:^(id responseBody) {
+        
+//        NSLog(@"result = %@",responseBody);
+        HSproductListModelParser * parser = [[HSproductListModelParser alloc] initWithDictionary:responseBody];
+        _adsList = [NSMutableArray arrayWithArray:parser.productListModel.topadvs];
+        [_scrollHeaderView setImageArray:_adsList];
+        
+    } FailureBlock:^(NSString *error) {
+        
+    }];
+}
+
 - (void)getProductListData
 {
     NSMutableDictionary * headDic = [[NSMutableDictionary alloc] initWithCapacity:1];
@@ -576,7 +591,7 @@
         _totalPage = [parser.productListModel.totalpage integerValue];
         
         for (HSProduct * product in parser.productListModel.product) {
-//            [_dataSource addObject:product];
+            [_dataSource addObject:product];
         }
         
         _adsList = [NSMutableArray arrayWithArray:parser.productListModel.topadvs];

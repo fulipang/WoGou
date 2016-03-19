@@ -102,42 +102,42 @@
  *
  *  @return 存储按钮名字的数组
  */
--(NSMutableArray *)buttonTitles
-{
-    if (_buttonTitles == nil) {
-        
-        _buttonTitles = [NSMutableArray array];
-        
-        [_buttonTitles addObject:@"床上用品"];
-        [_buttonTitles addObject:@"洗刷"];
-        [_buttonTitles addObject:@"浴室"];
-        [_buttonTitles addObject:@"灯饰"];
-        [_buttonTitles addObject:@"一星酒店"];
-        [_buttonTitles addObject:@"二星酒店"];
-        [_buttonTitles addObject:@"三星酒店"];
-        [_buttonTitles addObject:@"五星酒店"];
-    }
+//-(NSMutableArray *)buttonTitles
+//{
+//    if (_buttonTitles == nil) {
+//        
+//        _buttonTitles = [NSMutableArray array];
+//        
+//        [_buttonTitles addObject:@"床上用品"];
+//        [_buttonTitles addObject:@"洗刷"];
+//        [_buttonTitles addObject:@"浴室"];
+//        [_buttonTitles addObject:@"灯饰"];
+//        [_buttonTitles addObject:@"一星酒店"];
+//        [_buttonTitles addObject:@"二星酒店"];
+//        [_buttonTitles addObject:@"三星酒店"];
+//        [_buttonTitles addObject:@"五星酒店"];
+//    }
+//
+//    return _buttonTitles;
+//}
 
-    return _buttonTitles;
-}
-
--(NSMutableArray *)buttonImages
-{
-    if (_buttonImages == nil) {
-        
-        _buttonImages = [NSMutableArray array];
-        [_buttonImages addObject:[UIImage imageNamed:@"show_hotel_bedding"]];
-        [_buttonImages addObject:[UIImage imageNamed:@"show_hotel_brush"]];
-        [_buttonImages addObject:[UIImage imageNamed:@"show_hotel_bathroom"]];
-        [_buttonImages addObject:[UIImage imageNamed:@"show_hotel_light"]];
-        [_buttonImages addObject:[UIImage imageNamed:@"show_hotel_oneStar"]];
-        [_buttonImages addObject:[UIImage imageNamed:@"show_hotel_twoStar"]];
-        [_buttonImages addObject:[UIImage imageNamed:@"show_hotel_threeStar"]];
-        [_buttonImages addObject:[UIImage imageNamed:@"show_hotel_fiveStar"]];
-    }
-    
-    return _buttonImages;
-}
+//-(NSMutableArray *)buttonImages
+//{
+//    if (_buttonImages == nil) {
+//        
+//        _buttonImages = [NSMutableArray array];
+//        [_buttonImages addObject:[UIImage imageNamed:@"show_hotel_bedding"]];
+//        [_buttonImages addObject:[UIImage imageNamed:@"show_hotel_brush"]];
+//        [_buttonImages addObject:[UIImage imageNamed:@"show_hotel_bathroom"]];
+//        [_buttonImages addObject:[UIImage imageNamed:@"show_hotel_light"]];
+//        [_buttonImages addObject:[UIImage imageNamed:@"show_hotel_oneStar"]];
+//        [_buttonImages addObject:[UIImage imageNamed:@"show_hotel_twoStar"]];
+//        [_buttonImages addObject:[UIImage imageNamed:@"show_hotel_threeStar"]];
+//        [_buttonImages addObject:[UIImage imageNamed:@"show_hotel_fiveStar"]];
+//    }
+//    
+//    return _buttonImages;
+//}
 
 - (void)setCellWithData:(NSArray *)categoryData
 {
@@ -147,11 +147,12 @@
         }
     }
     
-    if (categoryData.count <=8) {
+    if (categoryData.count <=4) {
     
-    for (NSInteger i = 0; i < 8; i++) {
+    for (NSInteger i = 0; i < 4; i++) {
         
-        HPCategorysModel * category = categoryData[i];
+//        HPCategorysModel * category = categoryData[i];
+        NSDictionary * category = categoryData[i];
         
         NSInteger line           = i % 4;
         NSInteger row            = i / 4;
@@ -175,13 +176,13 @@
             make.bottom.mas_equalTo(button.mas_bottom).with.offset(GET_SCAlE_HEIGHT(-7));
         }];
         customeTitleLabel.font = [UIFont systemFontOfSize:NORMALFONTSIZE];
-        customeTitleLabel.text = category.title;
+        customeTitleLabel.text = category[@"title"];
         customeTitleLabel.textColor = UIColorFromRGB(GRAYFONTCOLOR);
         [button setImageEdgeInsets:UIEdgeInsetsMake(-13, 0, 0, 0)];
         [button setTitleColor:UIColorFromRGB(BLACKFONTCOLOR) forState:UIControlStateNormal];
         
         UIImageView * imageView = [UIImageView new];
-        [imageView sd_setImageWithURL:[NSURL URLWithString:category.logo] placeholderImage:[UIImage imageNamed:@"headimage"]];
+        [imageView sd_setImageWithURL:[NSURL URLWithString:category[@"logo"]] placeholderImage:[UIImage imageNamed:@"headimage"]];
         [button addSubview:imageView];
         
         [self addSubview:button];

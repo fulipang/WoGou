@@ -29,11 +29,11 @@ typedef NS_ENUM(NSInteger, MineTableViewSelectType) {
     /**
      *  我的商品订单
      */
-    kMineTableViewSelectTypeCommodityOrder = 100,
+    kMineTableViewSelectTypeCommodityOrder = 0,
     /**
      *  我的订房订单
      */
-    kMineTableViewSelectTypeHotelOrder = 0,
+    kMineTableViewSelectTypeHotelOrder,
     /**
      *  我的评论
      */

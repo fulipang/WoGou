@@ -244,12 +244,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HomeShopping/SpecialOffers/Controller/SpecialOffersViewController.m"
-            timestampString = "475513944.708704"
+            timestampString = "480049719.068331"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "213"
-            endingLineNumber = "213"
-            landmarkName = "-tableView:viewForHeaderInSection:"
+            startingLineNumber = "217"
+            endingLineNumber = "217"
+            landmarkName = "-searchButton"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -260,12 +260,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HomeShopping/SpecialOffers/Controller/SpecialOffersViewController.m"
-            timestampString = "475513944.708704"
+            timestampString = "480049719.068331"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "217"
-            endingLineNumber = "217"
-            landmarkName = "-tableView:viewForHeaderInSection:"
+            startingLineNumber = "221"
+            endingLineNumber = "221"
+            landmarkName = "-searchButton"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -451,22 +451,6 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "HomeShopping/MineInformation/Controller/MineViewController.m"
-            timestampString = "475271978.823257"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "237"
-            endingLineNumber = "237"
-            landmarkName = "-createInfoView"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "HomeShopping/BaseClass/NetWorkSingleton.m"
             timestampString = "474877667.723001"
             startingColumnNumber = "9223372036854775807"
@@ -515,54 +499,6 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "HomeShopping/BaseClass/NetWorkSingleton.m"
-            timestampString = "474619673.137222"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
-            landmarkName = "-postWithParameter:SuccessBlock:FailureBlock:"
-            landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[NetWorkSingleton postWithParameter:SuccessBlock:FailureBlock:]"
-                  moduleName = "HomeShopping"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sooncong/Documents/%E7%AA%9D%E6%B2%9F%E9%A1%B9%E7%9B%AE/%E5%B7%A5%E7%A8%8B/HomeShopping_final/HomeShopping/BaseClass/NetWorkSingleton.m"
-                  timestampString = "475211984.41785"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "52"
-                  endingLineNumber = "52"
-                  offsetFromSymbolStart = "192">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__64-[NetWorkSingleton postWithParameter:SuccessBlock:FailureBlock:]_block_invoke"
-                  moduleName = "HomeShopping"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sooncong/Documents/%E7%AA%9D%E6%B2%9F%E9%A1%B9%E7%9B%AE/%E5%B7%A5%E7%A8%8B/HomeShopping_final/HomeShopping/BaseClass/NetWorkSingleton.m"
-                  timestampString = "475211984.41817"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "52"
-                  endingLineNumber = "52"
-                  offsetFromSymbolStart = "96">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "HomeShopping/MineInformation/Controller/ModifyAccountOrPasswordViewController.m"
             timestampString = "474634241.319305"
             startingColumnNumber = "9223372036854775807"
@@ -586,22 +522,6 @@
             startingLineNumber = "219"
             endingLineNumber = "219"
             landmarkName = "-getConfirmCode"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "HomeShopping/MineInformation/Controller/MineViewController.m"
-            timestampString = "475271978.823257"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "235"
-            endingLineNumber = "235"
-            landmarkName = "-createInfoView"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -672,11 +592,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HomeShopping/HomePage/Controller/HomePageViewController.m"
-            timestampString = "478625448.596616"
+            timestampString = "479980437.993901"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "862"
-            endingLineNumber = "862"
+            startingLineNumber = "763"
+            endingLineNumber = "763"
             landmarkName = "-getPossibleLikeData"
             landmarkType = "5">
          </BreakpointContent>
@@ -848,12 +768,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HomeShopping/SpecialOffers/Controller/SpecialOffersViewController.m"
-            timestampString = "478626122.235229"
+            timestampString = "480049719.068331"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "483"
-            endingLineNumber = "483"
-            landmarkName = "-getHotelData"
+            startingLineNumber = "487"
+            endingLineNumber = "487"
+            landmarkName = "-push2LoadMoreWithScrollerView:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1088,11 +1008,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HomeShopping/HomePage/Controller/HomePageViewController.m"
-            timestampString = "478625448.596616"
+            timestampString = "479980437.993901"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "851"
-            endingLineNumber = "851"
+            startingLineNumber = "752"
+            endingLineNumber = "752"
             landmarkName = "-getHomePageData"
             landmarkType = "5">
          </BreakpointContent>
@@ -1248,7 +1168,7 @@
                   moduleName = "HomeShopping"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/sooncong/Documents/%E9%A1%B9%E7%9B%AE/HomeShopping/MineInformation/Controller/CollectionViewController.m"
-                  timestampString = "479800646.092854"
+                  timestampString = "480050849.80642"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "333"
@@ -1263,7 +1183,7 @@
                   moduleName = "HomeShopping"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/sooncong/Documents/%E9%A1%B9%E7%9B%AE/HomeShopping/MineInformation/Controller/CollectionViewController.m"
-                  timestampString = "479800646.093065"
+                  timestampString = "480050849.80665"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "333"
@@ -1486,11 +1406,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HomeShopping/BaseClass/NetWorkSingleton.m"
-            timestampString = "475145445.728775"
+            timestampString = "480049719.068331"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "344"
-            endingLineNumber = "344"
+            startingLineNumber = "366"
+            endingLineNumber = "366"
             landmarkName = "-postWithHeadParameter:bodyParameter:productsParameter:SuccessBlock:FailureBlock:"
             landmarkType = "5">
             <Locations>
@@ -1534,11 +1454,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HomeShopping/BaseClass/NetWorkSingleton.m"
-            timestampString = "475145447.427706"
+            timestampString = "480049719.068331"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "346"
-            endingLineNumber = "346"
+            startingLineNumber = "368"
+            endingLineNumber = "368"
             landmarkName = "-postWithHeadParameter:bodyParameter:productsParameter:SuccessBlock:FailureBlock:"
             landmarkType = "5">
          </BreakpointContent>
@@ -2110,7 +2030,7 @@
                   moduleName = "HomeShopping"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/sooncong/Documents/%E9%A1%B9%E7%9B%AE/HomeShopping/MineInformation/Controller/ModifyPassWordViewController.m"
-                  timestampString = "479800646.099443"
+                  timestampString = "480050849.822656"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "279"
@@ -2125,7 +2045,7 @@
                   moduleName = "HomeShopping"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/sooncong/Documents/%E9%A1%B9%E7%9B%AE/HomeShopping/MineInformation/Controller/ModifyPassWordViewController.m"
-                  timestampString = "479800646.099691"
+                  timestampString = "480050849.82302"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "279"
@@ -2430,7 +2350,7 @@
                   moduleName = "HomeShopping"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/sooncong/Documents/%E9%A1%B9%E7%9B%AE/HomeShopping/HotelSupplies/Controller/CommentViewController.m"
-                  timestampString = "479800646.103241"
+                  timestampString = "480050849.835876"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "211"
@@ -2445,7 +2365,7 @@
                   moduleName = "HomeShopping"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/sooncong/Documents/%E9%A1%B9%E7%9B%AE/HomeShopping/HotelSupplies/Controller/CommentViewController.m"
-                  timestampString = "479800646.103536"
+                  timestampString = "480050849.836096"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "211"
@@ -3102,11 +3022,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HomeShopping/HomePage/Controller/HomePageViewController.m"
-            timestampString = "478625448.596616"
+            timestampString = "479980437.993901"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "824"
-            endingLineNumber = "824"
+            startingLineNumber = "725"
+            endingLineNumber = "725"
             landmarkName = "-getHomePageData"
             landmarkType = "5">
          </BreakpointContent>
@@ -3182,7 +3102,7 @@
                   moduleName = "HomeShopping"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/sooncong/Documents/%E9%A1%B9%E7%9B%AE/HomeShopping/MineInformation/Controller/MyCommentViewController.m"
-                  timestampString = "479800646.118343"
+                  timestampString = "480050849.855272"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "408"
@@ -3197,7 +3117,7 @@
                   moduleName = "HomeShopping"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/sooncong/Documents/%E9%A1%B9%E7%9B%AE/HomeShopping/MineInformation/Controller/MyCommentViewController.m"
-                  timestampString = "479800646.118566"
+                  timestampString = "480050849.855449"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "408"
@@ -3230,7 +3150,7 @@
                   moduleName = "HomeShopping"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/sooncong/Documents/%E9%A1%B9%E7%9B%AE/HomeShopping/MineInformation/Controller/MyCommentViewController.m"
-                  timestampString = "479800646.119747"
+                  timestampString = "480050849.856529"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "383"
@@ -3245,7 +3165,7 @@
                   moduleName = "HomeShopping"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/sooncong/Documents/%E9%A1%B9%E7%9B%AE/HomeShopping/MineInformation/Controller/MyCommentViewController.m"
-                  timestampString = "479800646.11995"
+                  timestampString = "480050849.856712"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "383"
@@ -3278,7 +3198,7 @@
                   moduleName = "HomeShopping"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/sooncong/Documents/%E9%A1%B9%E7%9B%AE/HomeShopping/MineInformation/Controller/MyCommentViewController.m"
-                  timestampString = "479800646.121149"
+                  timestampString = "480050849.857777"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "374"
@@ -3293,7 +3213,7 @@
                   moduleName = "HomeShopping"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/sooncong/Documents/%E9%A1%B9%E7%9B%AE/HomeShopping/MineInformation/Controller/MyCommentViewController.m"
-                  timestampString = "479800646.121392"
+                  timestampString = "480050849.858143"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "374"
@@ -3386,31 +3306,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "HomeShopping/HotelSupplies/Controller/HotelSupplyListViewController.m"
-            timestampString = "478625779.539256"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "627"
-            endingLineNumber = "627"
-            landmarkName = "-getHotelListData"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HomeShopping/HomePage/Controller/HomePageViewController.m"
-            timestampString = "478625448.596616"
+            timestampString = "479980437.993901"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "849"
-            endingLineNumber = "849"
+            startingLineNumber = "750"
+            endingLineNumber = "750"
             landmarkName = "-getHomePageData"
             landmarkType = "5">
          </BreakpointContent>

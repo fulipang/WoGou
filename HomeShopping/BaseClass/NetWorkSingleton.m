@@ -335,6 +335,28 @@ NSString *const zhifubaoKEY = @"k328l92xx6xxjct3n90clrb5vinn456t";
     }];
 }
 
+-(void)getAdviceWithType:(AdvicePositionType)type SuccessBlock:(SuccessBlock)successBlock FailureBlock:(FailureBlock)failureBlock
+{
+    NSMutableDictionary * headDic = [[NSMutableDictionary alloc] initWithCapacity:1];
+    NSMutableDictionary * bodyDic = [[NSMutableDictionary alloc] initWithCapacity:1];
+    [bodyDic setObject:@"advlist" forKey:@"functionid"];
+    [bodyDic setObject:@"2" forKey:@"producttype"];
+    [bodyDic setObject:[NSString stringWithFormat:@"%ld",type] forKey:@"advtype"];
+    
+    NSMutableDictionary * parameter = [[NSMutableDictionary alloc] initWithCapacity:1];
+    [parameter setObject:headDic forKey:@"head"];
+    [parameter setObject:bodyDic forKey:@"body"];
+    [self postWithParameter:parameter SuccessBlock:^(id responseBody) {
+        if ([responseBody isKindOfClass:[NSDictionary class]]) {
+            successBlock(responseBody);
+        }else{
+            failureBlock(@"数据解析失败");
+        }
+    } FailureBlock:^(NSString *error) {
+        failureBlock(error);
+    }];
+}
+
 
 - (void)postWithHeadParameter:(NSDictionary *)headDic bodyParameter:(NSDictionary *)bodyDic productsParameter:(NSDictionary *)productsDic SuccessBlock:(SuccessBlock)successBlock FailureBlock:(FailureBlock)failureBlock{
     NSMutableDictionary * parameter = [[NSMutableDictionary alloc] initWithCapacity:1];
