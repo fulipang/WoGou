@@ -1048,7 +1048,7 @@
 {
 //    NSLog(@"%s", __func__);
     self.hidesBottomBarWhenPushed = YES;
-    OrderPaymentViewController * VC = [[OrderPaymentViewController alloc] initPrepayID:_orderDetail.prepayid orderNumber:_orderDetail.ordernum payType:(_orderDetail.paytime.intValue == 1)?kWeixinPayType:kAliPayType];
+    OrderPaymentViewController * VC = [[OrderPaymentViewController alloc] initPrepayID:_orderDetail.prepayid orderNumber:_orderDetail.ordernum payType:(_orderDetail.paytype.intValue == 1)?kWeixinPayType:kAliPayType];
     NSString * RealPayMoney = [NSString stringWithFormat:@"%.2f",([_orderDetail.totalcost floatValue] - [_orderDetail.discount floatValue])/100];
     VC.totalMoney = RealPayMoney.floatValue * 100;
     [self.navigationController pushViewController:VC animated:YES];
