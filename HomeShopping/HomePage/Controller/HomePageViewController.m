@@ -625,26 +625,36 @@ typedef NS_ENUM(NSInteger, SegTouchType) {
 {
     
     NSString *shreText = @"购窝是一个提供国内特价酒店产品一站式预定服务的平台";
+    UIImage *shareImage = [UIImage imageNamed:@"shareImage"];
     
     [UMSocialSnsService presentSnsIconSheetView:self
                                          appKey:@"56dfd3b1e0f55a9f6c000d99"
                                       shareText:shreText
-                                     shareImage:[UIImage imageNamed:@"shareImage"]
+                                     shareImage:shareImage
                                 shareToSnsNames:@[UMShareToWechatSession,UMShareToWechatTimeline,UMShareToQzone,UMShareToSina,UMShareToQQ,UMShareToTencent,UMShareToSms,UMShareToAlipaySession]
                                        delegate:self];
 
     NSString *shareTitle = @"预定国内最低价的酒店就在这里";
     NSString *url = @"http://www.apple.com.cn";
     
+    [UMSocialData defaultData].extConfig.alipaySessionData.alipayMessageType = UMSocialAlipayMessageTypeWeb;
+
+    UMSocialUrlResource *urlResource = [[UMSocialUrlResource alloc] initWithSnsResourceType:UMSocialUrlResourceTypeWeb url:url];
+    [UMSocialData defaultData].extConfig.sinaData.urlResource = urlResource;
+
+
+    
     [UMSocialData defaultData].extConfig.qqData.url = url;
     [UMSocialData defaultData].extConfig.qzoneData.url = url;
     [UMSocialData defaultData].extConfig.wechatSessionData.url = url;
     [UMSocialData defaultData].extConfig.wechatTimelineData.url = url;
-    
+    [UMSocialData defaultData].extConfig.alipaySessionData.url = url;
+
     [UMSocialData defaultData].extConfig.qqData.title = shareTitle;
     [UMSocialData defaultData].extConfig.qzoneData.title = shareTitle;
     [UMSocialData defaultData].extConfig.wechatSessionData.title = shareTitle;
     [UMSocialData defaultData].extConfig.wechatTimelineData.title = shareTitle;
+    [UMSocialData defaultData].extConfig.alipaySessionData.title = shareTitle;
 
     
 }
