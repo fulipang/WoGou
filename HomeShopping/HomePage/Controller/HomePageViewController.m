@@ -624,18 +624,18 @@ typedef NS_ENUM(NSInteger, SegTouchType) {
 -(void)leftButtonClicked
 {
     
-    NSString *shreText = @"购窝是一个提供国内特价酒店产品一站式预定服务的平台";
+    NSString *shareTitle = @"预定国内最低价的酒店就在这里";
+    NSString *shareText = @"购窝是一个提供国内特价酒店产品一站式预定服务的平台";
     UIImage *shareImage = [UIImage imageNamed:@"shareImage"];
-    
+    NSString *url = @"http://www.apple.com.cn";
+
     [UMSocialSnsService presentSnsIconSheetView:self
                                          appKey:@"56dfd3b1e0f55a9f6c000d99"
-                                      shareText:shreText
+                                      shareText:shareText
                                      shareImage:shareImage
                                 shareToSnsNames:@[UMShareToWechatSession,UMShareToWechatTimeline,UMShareToQzone,UMShareToSina,UMShareToQQ,UMShareToTencent,UMShareToSms,UMShareToAlipaySession]
                                        delegate:self];
 
-    NSString *shareTitle = @"预定国内最低价的酒店就在这里";
-    NSString *url = @"http://www.apple.com.cn";
     
     [UMSocialData defaultData].extConfig.alipaySessionData.alipayMessageType = UMSocialAlipayMessageTypeWeb;
 
@@ -665,6 +665,20 @@ typedef NS_ENUM(NSInteger, SegTouchType) {
     NSLog(@"response:%@", response.data.allValues);
 }
 
+
+//分平台分享
+- (void)didSelectSocialPlatform:(NSString *)platformName withSocialData:(UMSocialData *)socialData
+{
+    if ([platformName isEqualToString:UMShareToSms]) {
+        
+        NSString *shareTitle = @"预定国内最低价的酒店就在这里";
+        NSString *shareText = @"购窝是一个提供国内特价酒店产品一站式预定服务的平台";
+        UIImage *shareImage = [UIImage imageNamed:@"shareImage"];
+        NSString *url = @"http://www.apple.com.cn";
+        socialData.shareText = [shareTitle stringByAppendingString:[shareText stringByAppendingString:url]];
+        socialData.shareImage = shareImage;
+    }
+}
 
 -(void)rightButtonClicked
 {
