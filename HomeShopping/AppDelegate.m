@@ -85,10 +85,10 @@ void SNImageCacheConfig(void)
     [UMSocialData setAppKey:@"56dfd3b1e0f55a9f6c000d99"];
     
 #if DEBUG
-    [UMSocialData openLog:YES];
+//    [UMSocialData openLog:YES];
 #endif
     
-    NSString *urlString = @"http://www.baidu.com";
+    NSString *urlString = @"http://www.apple.com";
     
     [UMSocialWechatHandler setWXAppId:@"wx0761b5dd04114882" appSecret:@"3a3beed2dfee04ab6a140cab66ce006d" url: urlString];
     
@@ -151,12 +151,19 @@ void SNImageCacheConfig(void)
 
 
 
+
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
+    [UMSocialSnsService handleOpenURL:url];
     return [WXApi handleOpenURL:url delegate:[WXApiManager sharedManager]];
+    
 }
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
 {
+    
+    [UMSocialSnsService handleOpenURL:url];
+
+    
     //如果极简开发包不可用，会跳转支付宝钱包进行支付，需要将支付宝钱包的支付结果回传给开发包
     if ([url.host isEqualToString:@"safepay"]) {
         [[AlipaySDK defaultService] processOrderWithPaymentResult:url standbyCallback:^(NSDictionary *resultDic) {

@@ -623,36 +623,29 @@ typedef NS_ENUM(NSInteger, SegTouchType) {
 
 -(void)leftButtonClicked
 {
-    NSString *showMsg = @"敬请期待";
     
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @"提示"
-                                                    message: showMsg
-                                                   delegate: self
-                                          cancelButtonTitle:@"确定"
-                                          otherButtonTitles: nil, nil];
-    
-//    [alert show];
+    NSString *shreText = @"购窝是一个提供国内特价酒店产品一站式预定服务的平台";
     
     [UMSocialSnsService presentSnsIconSheetView:self
                                          appKey:@"56dfd3b1e0f55a9f6c000d99"
-                                      shareText:@"预定国内最低价的酒店就在这里"
-                                     shareImage:[UIImage imageNamed:@"AppIcon"]
+                                      shareText:shreText
+                                     shareImage:[UIImage imageNamed:@"shareImage"]
                                 shareToSnsNames:@[UMShareToWechatSession,UMShareToWechatTimeline,UMShareToQzone,UMShareToSina,UMShareToQQ,UMShareToTencent,UMShareToSms,UMShareToAlipaySession]
                                        delegate:self];
 
-
+    NSString *shareTitle = @"预定国内最低价的酒店就在这里";
+    NSString *url = @"http://www.apple.com.cn";
     
-    [UMSocialData defaultData].extConfig.qqData.url = @"分享url";
-    [UMSocialData defaultData].extConfig.qzoneData.url = @"分享url";
-    [UMSocialData defaultData].extConfig.wechatSessionData.url = @"分享url";
-    [UMSocialData defaultData].extConfig.wechatTimelineData.url = @"分享url";
-    [UMSocialData defaultData].extConfig.qqData.title = @"分享url";
-    [UMSocialData defaultData].extConfig.qzoneData.title = @"分享url";
-    [UMSocialData defaultData].extConfig.wechatSessionData.title = @"分享url";
-    [UMSocialData defaultData].extConfig.wechatTimelineData.title = @"分享url";
-
+    [UMSocialData defaultData].extConfig.qqData.url = url;
+    [UMSocialData defaultData].extConfig.qzoneData.url = url;
+    [UMSocialData defaultData].extConfig.wechatSessionData.url = url;
+    [UMSocialData defaultData].extConfig.wechatTimelineData.url = url;
     
-    [UMSocialData defaultData].extConfig.sinaData.shareText = @"分享text";
+    [UMSocialData defaultData].extConfig.qqData.title = shareTitle;
+    [UMSocialData defaultData].extConfig.qzoneData.title = shareTitle;
+    [UMSocialData defaultData].extConfig.wechatSessionData.title = shareTitle;
+    [UMSocialData defaultData].extConfig.wechatTimelineData.title = shareTitle;
+
     
 }
 
@@ -661,7 +654,6 @@ typedef NS_ENUM(NSInteger, SegTouchType) {
 - (void)didFinishGetUMSocialDataInViewController:(UMSocialResponseEntity *)response {
     NSLog(@"response:%@", response.data.allValues);
 }
-
 
 
 -(void)rightButtonClicked
