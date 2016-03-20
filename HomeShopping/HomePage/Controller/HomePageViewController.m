@@ -635,12 +635,25 @@ typedef NS_ENUM(NSInteger, SegTouchType) {
     
     [UMSocialSnsService presentSnsIconSheetView:self
                                          appKey:@"56dfd3b1e0f55a9f6c000d99"
-                                      shareText:@"窝沟-移动创业平台  晒收益，就是豪! 快来看看我赚了多少银子吧!"
+                                      shareText:@"预定国内最低价的酒店就在这里"
                                      shareImage:[UIImage imageNamed:@"AppIcon"]
                                 shareToSnsNames:@[UMShareToWechatSession,UMShareToWechatTimeline,UMShareToQzone,UMShareToSina,UMShareToQQ,UMShareToTencent,UMShareToSms,UMShareToAlipaySession]
                                        delegate:self];
 
 
+    
+    [UMSocialData defaultData].extConfig.qqData.url = @"分享url";
+    [UMSocialData defaultData].extConfig.qzoneData.url = @"分享url";
+    [UMSocialData defaultData].extConfig.wechatSessionData.url = @"分享url";
+    [UMSocialData defaultData].extConfig.wechatTimelineData.url = @"分享url";
+    [UMSocialData defaultData].extConfig.qqData.title = @"分享url";
+    [UMSocialData defaultData].extConfig.qzoneData.title = @"分享url";
+    [UMSocialData defaultData].extConfig.wechatSessionData.title = @"分享url";
+    [UMSocialData defaultData].extConfig.wechatTimelineData.title = @"分享url";
+
+    
+    [UMSocialData defaultData].extConfig.sinaData.shareText = @"分享text";
+    
 }
 
 #pragma mark UMSocialUIDelegate 
