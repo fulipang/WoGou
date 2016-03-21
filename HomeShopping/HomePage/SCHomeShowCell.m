@@ -147,7 +147,7 @@
         }
     }
     
-    if (categoryData.count <=4) {
+//    if (categoryData.count <=4) {
     
     for (NSInteger i = 0; i < 4; i++) {
         
@@ -195,7 +195,7 @@
         imageView.clipsToBounds = YES;
         
     }
-    }
+//    }
 }
 
 

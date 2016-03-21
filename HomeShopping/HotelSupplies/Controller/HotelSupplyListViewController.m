@@ -595,7 +595,7 @@
     [bodyDic setObject:@"10" forKey:@"pagesize"];
     
     if (_starLevel) {
-//        [bodyDic setObject:@"五星级" forKey:@"starlevel"];
+        [bodyDic setObject:_starLevel forKey:@"starlevel"];
     }
     
     if (_categoryID) {

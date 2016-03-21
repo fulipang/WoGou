@@ -441,7 +441,7 @@ typedef NS_ENUM(NSInteger, SegTouchType) {
             
             SCHomeShowCell * cell = [tableView dequeueReusableCellWithIdentifier:@"SCHomeShowCell"];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
-            if (_categorys.count > 0) {
+            if (_starlevels.count > 0) {
                 [cell setCellWithData:_starlevels];
             }
             
@@ -633,7 +633,7 @@ typedef NS_ENUM(NSInteger, SegTouchType) {
                                          appKey:@"56dfd3b1e0f55a9f6c000d99"
                                       shareText:shareText
                                      shareImage:shareImage
-                                shareToSnsNames:@[UMShareToWechatSession,UMShareToWechatTimeline,UMShareToQzone,UMShareToSina,UMShareToQQ,UMShareToTencent,UMShareToSms,UMShareToAlipaySession]
+                                shareToSnsNames:@[UMShareToWechatSession,UMShareToWechatTimeline,/*UMShareToQzone,*/UMShareToSina,UMShareToQQ,/*UMShareToTencent,UMShareToSms,UMShareToAlipaySession*/]
                                        delegate:self];
 
     
