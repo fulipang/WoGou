@@ -111,6 +111,7 @@
             imageView.tag                    = i+10;
             UITapGestureRecognizer *tap      = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(OnTapImage:)];
             imageView.userInteractionEnabled = YES;
+            tap.delegate = self;
             [imageView addGestureRecognizer:tap];
             [self.scrollView addSubview:imageView];
             
@@ -263,5 +264,10 @@
  // Drawing code
  }
  */
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
+    return YES;
+}
+
 
 @end

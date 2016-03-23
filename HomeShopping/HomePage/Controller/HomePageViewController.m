@@ -232,12 +232,12 @@ typedef NS_ENUM(NSInteger, SegTouchType) {
     /**
      *  初始化和位置
      */
-    self.mainTableView    = [UITableView new];
+    self.mainTableView    = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
     [self.view addSubview:self.mainTableView];
-    [self.mainTableView makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.and.bottom.mas_equalTo(self.view);
-        make.top.mas_equalTo(self.view.mas_top).with.offset(0);
-    }];
+//    [self.mainTableView makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.right.and.bottom.mas_equalTo(self.view);
+//        make.top.mas_equalTo(self.view.mas_top).with.offset(60);
+//    }];
     
     /**
      *  自定义操作
@@ -255,6 +255,8 @@ typedef NS_ENUM(NSInteger, SegTouchType) {
     [self.mainTableView registerClass:[ImageScrollCell class] forCellReuseIdentifier:@"ImageScrollCell"];
     [self.mainTableView registerClass:[SCHomeNormalCell class] forCellReuseIdentifier:@"SCHomeNormalCell"];
     [self.mainTableView registerClass:[HotelSuppliesProductCell class] forCellReuseIdentifier:@"cell"];
+    
+    
     
 }
 
@@ -341,9 +343,10 @@ typedef NS_ENUM(NSInteger, SegTouchType) {
         
     }else{
         
-        UIView * view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 0.1)];
-        return view;
+//        UIView * view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 0.1)];
+//        return view;
     }
+    return nil;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
@@ -381,7 +384,7 @@ typedef NS_ENUM(NSInteger, SegTouchType) {
         }
         
     }else{
-        return 2;
+        return 1;
     }
     
     //    NSInteger rows = (section > 0)?_possibleLikes.count:2;
@@ -392,7 +395,7 @@ typedef NS_ENUM(NSInteger, SegTouchType) {
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section == 0) {
-        if (indexPath.row == 0) {
+        if (indexPath.row != 0) {
             return 200;
         }else{
             return GET_SCAlE_HEIGHT(170/2);
@@ -415,30 +418,7 @@ typedef NS_ENUM(NSInteger, SegTouchType) {
         /**
          *  第一行 滚动cell
          */
-        if (indexPath.row == 0) {
-            
-            ImageScrollCell * cell = [tableView dequeueReusableCellWithIdentifier:@"ImageScrollCell"];
-            
-            if (_adds.count > 0) {
-                
-                [cell setImageArray:_adds];
-                
-                [cell callBackMethod:^(NSInteger index) {
-                    
-                    NSLog(@"index = %ld",index);
-                    HPAddsModel * model = _adds[index];
-                    
-                    [self JumpToadvertisementWithModel:model];
-                }];
-            }
-            
-            return cell;
-        }
-        /**
-         *  第二行 分类展示cell
-         */
-        else{
-            
+        
             SCHomeShowCell * cell = [tableView dequeueReusableCellWithIdentifier:@"SCHomeShowCell"];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             if (_starlevels.count > 0) {
@@ -474,7 +454,7 @@ typedef NS_ENUM(NSInteger, SegTouchType) {
             
             return cell;
             
-        }
+        
     }else{
         
 //        SCHomeNormalCell * cell = [tableView dequeueReusableCellWithIdentifier:@"SCHomeNormalCell"];
@@ -766,6 +746,31 @@ typedef NS_ENUM(NSInteger, SegTouchType) {
         HPModelListsParser *parser = [[HPModelListsParser alloc] initWithDictionary:responseBody];
         _adds = [NSMutableArray arrayWithArray:parser.modelLists.addsModel];
         _categorys = [NSMutableArray arrayWithArray:parser.modelLists.categorysModel];
+        
+        
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            ImageScrollCell * cell = [[ImageScrollCell alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 200)];
+            
+            if (_adds.count > 0) {
+                
+                [cell setImageArray:_adds];
+                
+                [cell callBackMethod:^(NSInteger index) {
+                    
+                    NSLog(@"index = %ld",index);
+                    HPAddsModel * model = _adds[index];
+                    
+                    [self JumpToadvertisementWithModel:model];
+                }];
+            }
+            
+            UIView *backView =  [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 200)];
+            [backView addSubview:cell];
+            backView.userInteractionEnabled = YES;
+            self.mainTableView.tableHeaderView = backView;
+//            self.mainTableView.tableHeaderView.backgroundColor  = [UIColor redColor];
+        }];
+        
         
         if (_starlevels == nil) {
             _starlevels = [NSMutableArray array];

@@ -20,7 +20,7 @@ typedef void(^imageScrollViewCallBackBlock)(NSInteger index);
 
 @end
 
-@interface ImageScrollView : UIView
+@interface ImageScrollView : UIView<UIGestureRecognizerDelegate>
 
 @property(nonatomic, strong) UIScrollView *scrollView;
 @property(nonatomic, strong) UIPageControl *pageControl;
