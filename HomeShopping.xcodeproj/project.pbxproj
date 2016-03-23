@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E59C4511CA2F90E00DF9E4E /* BannerScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E59C4501CA2F90E00DF9E4E /* BannerScrollView.m */; };
 		2D420A791C17BC1300A9B2A3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D420A781C17BC1300A9B2A3 /* main.m */; };
 		2D420A841C17BC1300A9B2A3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D420A831C17BC1300A9B2A3 /* Images.xcassets */; };
 		2D420A931C17BC1300A9B2A3 /* HomeShoppingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D420A921C17BC1300A9B2A3 /* HomeShoppingTests.m */; };
@@ -342,6 +343,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1E59C44F1CA2F90E00DF9E4E /* BannerScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BannerScrollView.h; sourceTree = "<group>"; };
+		1E59C4501CA2F90E00DF9E4E /* BannerScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BannerScrollView.m; sourceTree = "<group>"; };
 		2D420A731C17BC1300A9B2A3 /* HomeShopping.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeShopping.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D420A781C17BC1300A9B2A3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2D420A7A1C17BC1300A9B2A3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -1243,6 +1246,8 @@
 			children = (
 				2D420B801C17E5BD00A9B2A3 /* HomePageViewController.h */,
 				2D420B811C17E5BD00A9B2A3 /* HomePageViewController.m */,
+				1E59C44F1CA2F90E00DF9E4E /* BannerScrollView.h */,
+				1E59C4501CA2F90E00DF9E4E /* BannerScrollView.m */,
 				6D7C48281C1FB792002652F5 /* SearchResultViewController.h */,
 				6D7C48291C1FB792002652F5 /* SearchResultViewController.m */,
 				6D7C482A1C1FB792002652F5 /* SearchViewController.h */,
@@ -2868,6 +2873,7 @@
 				8343A6CB1C48F9FA00ED7B5F /* openssl_wrapper.m in Sources */,
 				6DA29AC61C401C80005C8E20 /* ModifyAccountOrPasswordViewController.m in Sources */,
 				6DEC979F1C4A02E200A1C560 /* UserInfoParser.m in Sources */,
+				1E59C4511CA2F90E00DF9E4E /* BannerScrollView.m in Sources */,
 				B14BB3C11C22DFF500EF22F0 /* SBJsonStreamWriterState.m in Sources */,
 				83272E3B1C4B7782005DDBF1 /* IQKeyboardManager.m in Sources */,
 				8343A6211C48F9E900ED7B5F /* PinYinForObjc.m in Sources */,

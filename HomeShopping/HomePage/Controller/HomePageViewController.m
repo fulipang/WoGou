@@ -32,6 +32,8 @@
 #import "PossibleLikeModelParser.h"
 #import "LoginViewController.h"
 
+#import "BannerScrollView.h"
+
 #import "BaiduMapHeader.h"
 #import "CCLocationManager.h"
 
@@ -42,6 +44,7 @@
 #import "UMSocialWechatHandler.h"
 #import "UMSocialQQHandler.h"
 #import "UMSocial.h"
+
 
 
 /**
@@ -91,8 +94,12 @@ typedef NS_ENUM(NSInteger, SegTouchType) {
     UIView * _PossibleLikeBaseView;
     
     CLLocationCoordinate2D _coordinate;
+    
+    UIImageView *imgView;
+    BannerScrollView *banner;
+    
 }
-
+@property (nonatomic, readwrite, strong) ImageScrollView *imageScrollView;
 @end
 
 @implementation HomePageViewController
@@ -236,7 +243,7 @@ typedef NS_ENUM(NSInteger, SegTouchType) {
     [self.view addSubview:self.mainTableView];
 //    [self.mainTableView makeConstraints:^(MASConstraintMaker *make) {
 //        make.left.right.and.bottom.mas_equalTo(self.view);
-//        make.top.mas_equalTo(self.view.mas_top).with.offset(60);
+//        make.top.mas_equalTo(self.view.mas_top).with.offset(200);
 //    }];
     
     /**
@@ -256,7 +263,10 @@ typedef NS_ENUM(NSInteger, SegTouchType) {
     [self.mainTableView registerClass:[SCHomeNormalCell class] forCellReuseIdentifier:@"SCHomeNormalCell"];
     [self.mainTableView registerClass:[HotelSuppliesProductCell class] forCellReuseIdentifier:@"cell"];
     
-    
+    UIView *backView  = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 200)];
+    banner = [[BannerScrollView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 200)];
+    [backView addSubview:banner];
+    self.mainTableView.tableHeaderView = backView;
     
 }
 
@@ -532,7 +542,27 @@ typedef NS_ENUM(NSInteger, SegTouchType) {
 {
     
     if ([scrollView isEqual:self.mainTableView]) {
+        CGFloat scaleX, scaleY = 0;
+        
+         scaleX = MAX(1, 1-scrollView.contentOffset.y/200.0);
+         scaleY = MAX(1, 1-scrollView.contentOffset.y/200.0);
 
+        banner.transform = CGAffineTransformMakeScale(scaleX, scaleY);
+        if (scrollView.contentOffset.y < 0) {
+            banner.frame = CGRectMake(scrollView.contentOffset.y/2, scrollView.contentOffset.y, SCREEN_WIDTH-scrollView.contentOffset.y, 200-scrollView.contentOffset.y);
+            NSLog(@"frame:%@",NSStringFromCGRect(self.imageScrollView.frame));
+        }
+        
+        
+
+        
+    }
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    if (scrollView == self.mainTableView) {
+        [self.imageScrollView.timer setFireDate:[NSDate distantPast]];
+        self.imageScrollView.scrollView.delegate = self.imageScrollView;
     }
 }
 
@@ -543,7 +573,9 @@ typedef NS_ENUM(NSInteger, SegTouchType) {
 
 -(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
 {
-  }
+    
+    
+}
 
 #pragma mark - 事件处理
 
@@ -747,29 +779,33 @@ typedef NS_ENUM(NSInteger, SegTouchType) {
         _adds = [NSMutableArray arrayWithArray:parser.modelLists.addsModel];
         _categorys = [NSMutableArray arrayWithArray:parser.modelLists.categorysModel];
         
+        banner.dataSource = _adds;
         
-        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-            ImageScrollCell * cell = [[ImageScrollCell alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 200)];
-            
-            if (_adds.count > 0) {
-                
-                [cell setImageArray:_adds];
-                
-                [cell callBackMethod:^(NSInteger index) {
-                    
-                    NSLog(@"index = %ld",index);
-                    HPAddsModel * model = _adds[index];
-                    
-                    [self JumpToadvertisementWithModel:model];
-                }];
-            }
-            
-            UIView *backView =  [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 200)];
-            [backView addSubview:cell];
-            backView.userInteractionEnabled = YES;
-            self.mainTableView.tableHeaderView = backView;
+//        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+//            ImageScrollCell * cell = [[ImageScrollCell alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 200)];
+//            
+//            if (_adds.count > 0) {
+//                
+//                [cell setImageArray:_adds];
+//                
+//                [cell callBackMethod:^(NSInteger index) {
+//                    
+//                    NSLog(@"index = %ld",index);
+//                    HPAddsModel * model = _adds[index];
+//                    
+//                    [self JumpToadvertisementWithModel:model];
+//                }];
+//            }
+        
+//            [_imageScrollView setImageArray:_adds];
+
+//            [_imageScrollView callBackWithBlock:^(NSInteger index) {
+//                HPAddsModel * model = _adds[index];
+//                [self JumpToadvertisementWithModel:model];
+//            }];
+        
 //            self.mainTableView.tableHeaderView.backgroundColor  = [UIColor redColor];
-        }];
+//        }];
         
         
         if (_starlevels == nil) {
