@@ -265,7 +265,7 @@ typedef NS_ENUM(NSInteger, SegTouchType) {
     [self.mainTableView registerClass:[HotelSuppliesProductCell class] forCellReuseIdentifier:@"cell"];
     
     UIView *backView  = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 200)];
-    banner = [[BannerScrollView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 200)];
+    banner = [[BannerScrollView alloc] initWithFrame:backView.bounds];
     [backView addSubview:banner];
     self.mainTableView.tableHeaderView = backView;
     
@@ -549,7 +549,7 @@ typedef NS_ENUM(NSInteger, SegTouchType) {
          scaleY = MAX(1, 1-scrollView.contentOffset.y/200.0);
 
         banner.transform = CGAffineTransformMakeScale(scaleX, scaleY);
-        if (scrollView.contentOffset.y < 0) {
+        if (scrollView.contentOffset.y <= 0) {
             banner.frame = CGRectMake(scrollView.contentOffset.y/2, scrollView.contentOffset.y, SCREEN_WIDTH-scrollView.contentOffset.y, 200-scrollView.contentOffset.y);
             NSLog(@"frame:%@",NSStringFromCGRect(banner.frame));
         }
