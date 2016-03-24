@@ -239,13 +239,12 @@ typedef NS_ENUM(NSInteger, SegTouchType) {
     /**
      *  初始化和位置
      */
-    self.mainTableView    = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
-    self.mainTableView.bottomY = self.view.heightY-49;
+    self.mainTableView    = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
     [self.view addSubview:self.mainTableView];
-//    [self.mainTableView makeConstraints:^(MASConstraintMaker *make) {
-//        make.left.right.and.bottom.mas_equalTo(self.view);
-//        make.top.mas_equalTo(self.view.mas_top).with.offset(200);
-//    }];
+    [self.mainTableView makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.and.bottom.mas_equalTo(self.view);
+        make.top.mas_equalTo(self.view.mas_top).with.offset(0);
+    }];
     
     /**
      *  自定义操作
@@ -552,7 +551,7 @@ typedef NS_ENUM(NSInteger, SegTouchType) {
         banner.transform = CGAffineTransformMakeScale(scaleX, scaleY);
         if (scrollView.contentOffset.y < 0) {
             banner.frame = CGRectMake(scrollView.contentOffset.y/2, scrollView.contentOffset.y, SCREEN_WIDTH-scrollView.contentOffset.y, 200-scrollView.contentOffset.y);
-            NSLog(@"frame:%@",NSStringFromCGRect(self.imageScrollView.frame));
+            NSLog(@"frame:%@",NSStringFromCGRect(banner.frame));
         }
         
         

@@ -44,7 +44,10 @@
 - (UIPageControl *)pageControl {
     if (!_pageControl) {
         _pageControl = [[UIPageControl alloc] initWithFrame:CGRectZero];
-        _pageControl.centerX_ = self.bounds.size.width/2;
+//        [self addSubview:_pageControl];
+
+        _pageControl.autoresizingMask =  UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleTopMargin;
+        _pageControl.centerX_ = self.centerX_;
         _pageControl.bottomY = self.bounds.size.height-20;
         _pageControl.currentPageIndicatorTintColor = [UIColor whiteColor];
         _pageControl.pageIndicatorTintColor = [UIColor grayColor];
@@ -72,6 +75,7 @@
         _collectionView.delegate = self;
         _collectionView.dataSource = self;
         _collectionView.pagingEnabled = YES;
+        _collectionView.showsHorizontalScrollIndicator = NO;
         _collectionView.autoresizingMask = UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleHeight;
 
 
@@ -134,18 +138,18 @@
 
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    if (_timer) {
+        [_timer invalidate];
+        self.timer = nil;
+    }
     
 }
 
-- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
-//    [self.timer invalidate];
-//    self.timer = nil;
-}
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
     self.currentPage = scrollView.contentOffset.x/SCREEN_WIDTH;
     self.pageControl.currentPage = self.currentPage%self.dataSource.count;
-//    [self.timer setFireDate:[NSDate distantPast]];
+    [self timer];
 
 }
 
