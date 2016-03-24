@@ -559,12 +559,7 @@ typedef NS_ENUM(NSInteger, SegTouchType) {
     }
 }
 
-- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-    if (scrollView == self.mainTableView) {
-        [self.imageScrollView.timer setFireDate:[NSDate distantPast]];
-        self.imageScrollView.scrollView.delegate = self.imageScrollView;
-    }
-}
+
 
 -(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
 {
