@@ -15,6 +15,7 @@
 @property (nonatomic, readwrite, strong) UICollectionView *collectionView;
 @property (nonatomic, readwrite, strong) NSTimer *timer;
 @property (nonatomic, readwrite, assign) NSInteger currentPage;
+@property (nonatomic, readwrite, strong) UIPageControl *pageControl;
 @end
 
 @implementation BannerScrollView
@@ -25,18 +26,31 @@
     if (self) {
         [self addSubview:self.collectionView];
         [self timer];
+        [self addSubview:self.pageControl];
     }
     return self;
 }
 
 - (void)setDataSource:(NSArray *)dataSource {
     _dataSource = dataSource;
-    [_collectionView setContentSize:CGSizeMake(dataSource.count*100*SCREEN_WIDTH, self.bounds.size.height)];
-
+    self.pageControl.numberOfPages = dataSource.count;
+    [self.collectionView setContentSize:CGSizeMake(dataSource.count*100*SCREEN_WIDTH, self.bounds.size.height)];
+    [self.collectionView setContentOffset:CGPointMake(dataSource.count*49*SCREEN_WIDTH, 0)];
     [self.collectionView reloadData];
 }
 
 #pragma mark override
+
+- (UIPageControl *)pageControl {
+    if (!_pageControl) {
+        _pageControl = [[UIPageControl alloc] initWithFrame:CGRectZero];
+        _pageControl.centerX_ = self.bounds.size.width/2;
+        _pageControl.bottomY = self.bounds.size.height-20;
+        _pageControl.currentPageIndicatorTintColor = [UIColor whiteColor];
+        _pageControl.pageIndicatorTintColor = [UIColor grayColor];
+    }
+    return _pageControl;
+}
 
 - (NSTimer*)timer {
     if (!_timer) {
@@ -114,14 +128,13 @@
     self.currentPage++;
     self.currentPage = MAX(0, self.currentPage);
     self.currentPage = MIN(self.currentPage, self.dataSource.count*100);
-    
+    self.pageControl.currentPage = self.currentPage%self.dataSource.count;
     [self.collectionView setContentOffset:CGPointMake(self.currentPage*SCREEN_WIDTH, 0) animated:YES];
-    
-    
 }
 
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    
 }
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
@@ -130,8 +143,9 @@
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-//    self.currentPage = scrollView.contentOffset.x/SCREEN_WIDTH;
-    [self.timer setFireDate:[NSDate distantPast]];
+    self.currentPage = scrollView.contentOffset.x/SCREEN_WIDTH;
+    self.pageControl.currentPage = self.currentPage%self.dataSource.count;
+//    [self.timer setFireDate:[NSDate distantPast]];
 
 }
 

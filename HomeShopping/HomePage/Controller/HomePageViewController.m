@@ -240,6 +240,7 @@ typedef NS_ENUM(NSInteger, SegTouchType) {
      *  初始化和位置
      */
     self.mainTableView    = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
+    self.mainTableView.bottomY = self.view.heightY-49;
     [self.view addSubview:self.mainTableView];
 //    [self.mainTableView makeConstraints:^(MASConstraintMaker *make) {
 //        make.left.right.and.bottom.mas_equalTo(self.view);
@@ -253,6 +254,7 @@ typedef NS_ENUM(NSInteger, SegTouchType) {
     self.mainTableView.separatorStyle  = UITableViewCellSelectionStyleNone;
     self.mainTableView.delegate        = self;
     self.mainTableView.dataSource      = self;
+    self.mainTableView.showsVerticalScrollIndicator = NO;
     //    self.mainTableView.
     
     /**
